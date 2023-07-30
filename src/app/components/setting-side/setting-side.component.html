@@ -1,0 +1,42 @@
+<div class="container my-3">
+  <div class="">
+    <ng-container *ngFor="let type of availableTypes">
+      <div class="row">
+        <div class="col-4">
+          <button
+            (click)="addInput(type)"
+            class="btn btn-primary my-2 btn-block w-100"
+          >
+            Add new {{ type }} input
+          </button>
+        </div>
+        <div class="col">
+          <div *ngIf="!getFilteredInputs(type).length" class="text-center  my-2 ">
+            Click on the button to add new input
+          </div>
+          <div *ngIf="getFilteredInputs(type).length">
+            <div *ngFor="let input of getFilteredInputs(type)" class="mt-2 col">
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                <formly-form
+                  [fields]="[input.config]"
+                  [form]="form"
+                  [model]="model"
+                ></formly-form>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-10">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <button type="submit" class="btn btn-success btn-block w-100">
+          View
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

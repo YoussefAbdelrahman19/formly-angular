@@ -1,0 +1,74 @@
+<!-- <div class="col-8 mx-auto my-2" *ngIf="fields.length">
+  <h2>View Side Component</h2>
+  <form>
+    <formly-form [fields]="fields" [model]="dataFromSettingSide"></formly-form>
+
+    <button
+      type="button"
+      class="btn btn-primary btn-block my-2 w-100"
+      (click)="submit($event)"
+    >
+      Submit
+    </button>
+  </form>
+<!-- </div>
+<div class="col-8 mx-auto my-2" *ngIf="!fields.length">
+  <h2 class="text-center text-danger my-2">There is no settings</h2>
+</div>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <ng-container *ngIf="fields.length; else noSettingsTemplate">
+        <h2 class="text-center mb-4">View Side Component</h2>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <formly-form
+            [fields]="fields"
+            [model]="dataFromSettingSide"
+            [options]="formOptions"
+          ></formly-form>
+
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary btn-block w-100">
+              Submit
+            </button>
+          </div>
+        </form>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #noSettingsTemplate>
+  <div class="col-8 mx-auto my-2">
+    <h2 class="text-center text-danger my-2">There are no settings</h2>
+  </div>
+</ng-template> -->
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <ng-container *ngIf="fields.length; else noSettingsTemplate">
+        <h2 class="text-center mb-4">View Side Component</h2>
+        <form [formGroup]="form" >
+          <formly-form
+            [fields]="fields"
+            [model]="dataFromSettingSide"
+            [options]="formOptions"
+          ></formly-form>
+
+          <div class="text-center my-3">
+            <button type="submit" class="btn btn-primary btn-block w-100" (click)="submit()">
+              Submit
+            </button>
+          </div>
+        </form>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #noSettingsTemplate>
+  <div class="col-8 mx-auto my-2">
+    <h2 class="text-center text-danger my-2">There are no settings</h2>
+  </div>
+</ng-template>
